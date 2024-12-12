@@ -29,3 +29,6 @@ df_ann_glb.columns = df_ann_glb_raw.iloc[21]                    # set gases as c
 df_ann_glb = df_ann_glb.set_index('v YEARS/GAS >')              # set years as index
 df_ann_glb = df_ann_glb.rename_axis(index='Years')              # rename the index
 print(df_ann_glb.columns)
+
+# save the file
+df_ann_glb.to_csv("../forcings/GHGs/his_GHGs_ann_CMIP6.csv",)
