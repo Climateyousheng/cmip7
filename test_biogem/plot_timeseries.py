@@ -28,7 +28,7 @@ with open(filename, "r") as file:
         if line.strip() == "":                              # skip blank lines
             continue
         # Parse each line into variables
-        for i in range(count(col_list)):
+        for i in range(len(col_list)):
             values = line.split()            
             data_list[i].append(float(values[i]))
             # time.append(float(values[0]))
@@ -42,7 +42,7 @@ with open(filename, "r") as file:
 # surT = np.array(surT)
 # benT = np.array(benT)
 vars = []
-for i in range(count(col_list)):
+for i in range(len(col_list)):
     vars[i] = np.array(data_list[i])
 
 # Plotting the data
@@ -52,7 +52,7 @@ plt.figure(figsize=(10, 6))
 # plt.plot(time, temperature, label="Temperature (°C)", marker='o')
 # plt.plot(time, surT, label="_surT (°C)", marker='s')
 # plt.plot(time, benT, label="_benT (°C)", marker='^')
-for i in range(count(col_list)-1):
+for i in range(len(col_list)-1):
     plt.plot(vars[0], vars[i+1], label=col_list[i+1], marker='o')
 
 # Add labels, title, and legend
