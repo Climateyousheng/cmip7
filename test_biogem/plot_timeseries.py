@@ -6,12 +6,9 @@ filename = "biogem_series_misc_ocn_insol.res"  # Replace with your file's name
 
 # Initialize lists to store data
 col_list = []
-# time = []
-# temperature = []
-# surT = []
-# benT = []
 data_list = []
 # Open and process the file
+print('open file')
 with open(filename, "r") as file:
     for line in file:
         # Skip the header or lines starting with non-data content
@@ -41,10 +38,12 @@ with open(filename, "r") as file:
 # temperature = np.array(temperature)
 # surT = np.array(surT)
 # benT = np.array(benT)
+print('convection')
 vars = []
 for i in range(len(col_list)):
     vars[i] = np.array(data_list[i])
 
+print('plotting')
 # Plotting the data
 plt.figure(figsize=(10, 6))
 
