@@ -41,7 +41,7 @@ def read_file(filename):
     # Return vars
     #return col_list, units_list, vars
 
-def plot_timeseries(filename, i):
+def plot_timeseries(filename, col_index):
     # Read the data from the file
     # Initialize lists to store data
     col_list = []
@@ -70,14 +70,16 @@ def plot_timeseries(filename, i):
     # Convert lists to numpy arrays for easier handling
     for i in range(len(col_list)):
         vars.append(np.array(data_list[i]))
+        if units_list[i]=='degree C':
+            vars[i] = np.round(vars[i],2)
 
     # print time series of the ith variables in col_list
     plt.figure(figsize=(10, 6))
-    plt.plot(vars[0], vars[i], label=col_list[i], marker='o')
+    plt.plot(vars[0], vars[col_index], label=col_list[col_index], marker='o')
     # Add labels, title, and legend
     plt.xlabel(col_list[0])
-    plt.ylabel(col_list[i])
-    plt.title(col_list[i]+' against '+col_list[0])
+    plt.ylabel(col_list[col_index])
+    plt.title(col_list[col_index]+' against '+col_list[0])
     plt.legend()
     plt.grid(True)
 
