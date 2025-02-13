@@ -70,7 +70,7 @@ def plot_timeseries(filename, col_index):
     # Convert lists to numpy arrays for easier handling
     for i in range(len(col_list)):
         vars.append(np.array(data_list[i]))
-        if units_list[i]=='degree C':
+        if units_list[i]=='degrees C' or units_list[i]=='degree C':
             vars[i] = np.round(vars[i],2)
 
     # print time series of the ith variables in col_list
