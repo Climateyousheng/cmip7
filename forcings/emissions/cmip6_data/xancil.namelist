@@ -1,0 +1,119 @@
+ &nam_config
+  ICAL = 2,
+  ISIZE = 64,
+  L32BIT = .FALSE.,
+  VERSION = 4.5,
+  LBIGENDOUT = .TRUE.,
+  LWFIO = .FALSE.,
+  NNCFILES = 1
+  NCFILES = "/home/bridge/glxaf/COLLABORATIONS/Chris_Jones/Chris_Jones_CO2_emissions_1750_1799.nc"
+ /
+
+ &nam_gridconfig
+  LVARGRID = .FALSE.,
+  IAVERT = 0,
+  IOVERT = 0,
+  LDEEPSOIL = .TRUE.,
+  NSOILLEV = 4,
+  SOILLEV(1) = 0.1,
+  SOILLEV(2) = 0.25,
+  SOILLEV(3) = 0.65,
+  SOILLEV(4) = 2.0
+ /
+
+ &nam_ozone
+ /
+
+ &nam_smow
+ /
+
+ &nam_slt
+ /
+
+ &nam_soil
+ /
+
+ &nam_veg
+ /
+
+ &nam_vegfrac
+ /
+
+ &nam_vegfunc
+ /
+
+ &nam_vegdist
+ /
+
+ &nam_sst
+ /
+
+ &nam_ice
+ /
+
+ &nam_orog
+ /
+
+ &nam_mask
+ /
+
+ &nam_lfrac
+ /
+
+ &nam_ausrmulti
+ /
+
+ &nam_ausrancil
+  LAUSRANCIL = .TRUE.,
+  AUSRANCIL_FILEOUT = "/home/bridge/glxaf/COLLABORATIONS/Chris_Jones/Chris_Jones_emissions_1750_1799",
+  LAUSRANCIL_PERIODIC = .TRUE.,
+  IAUSRANCIL_TIMEUSAGE1 = 1,
+  IAUSRANCIL_TIMEUSAGE2 = 0,
+  IAUSRANCIL_STARTDATE(1) = 1750,
+  IAUSRANCIL_STARTDATE(2) = 7,
+  IAUSRANCIL_STARTDATE(3) = 1,
+  IAUSRANCIL_STARTDATE(4) = 0,
+  IAUSRANCIL_STARTDATE(5) = 0,
+  IAUSRANCIL_STARTDATE(6) = 0,
+  IAUSRANCIL_NTIMES = 50,
+  IAUSRANCIL_INTERVAL = 1,
+  IAUSRANCIL_INTUNIT = 0,
+  LAUSRANCIL_MM = .TRUE.
+  IAUSRANCIL_NFIELD = 1
+  IAUSRANCIL_FILEINID(1) = 1,
+  IAUSRANCIL_STASHCODE(1) = 251,
+  IAUSRANCIL_PPCODE(1) = 1561,
+  AUSRANCIL_NCNAME(1) = "field1561_snp_ua",
+  IAUSRANCIL_GRIDTYPE(1) = 1,
+  IAUSRANCIL_DATATYPE(1) = 1,
+  IAUSRANCIL_MASKTYPE(1) = 0,
+  IAUSRANCIL_MASK(1) = 0,
+ /
+
+ &nam_ts1
+ /
+
+ &nam_flux
+ /
+
+ &nam_ousrmulti
+ /
+
+ &nam_ousrancil
+ /
+
+ &nam_genanc_config
+  NANCFILES = 1
+ /
+
+ &nam_genanc
+  LGENANC_FILE(1) = .FALSE.,
+
+ /
+
+ &nam_astart
+ /
+
+ &nam_ostart
+ /
+
