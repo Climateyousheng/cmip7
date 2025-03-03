@@ -1,0 +1,6 @@
+# Notes on cmip6 emissions data
+
+# updated on 3rd Mar 2025
+Note we've recently moved raw emissions data and animation outputs to another folder,
+<~20983/ancil/cmip7/new_emissions>
+Thus, be careful in the locations when applying scripts here to extract data from those files and to produce processed files.
