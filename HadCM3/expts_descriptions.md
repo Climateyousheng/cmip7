@@ -43,7 +43,9 @@ Copied from `xpzab`, control run of `xpza`.  The GHGs in `xqchb` are not updated
 >>
 >> 5. Ocean:
 >>
->>    No changes to ocean panels from Paul's job.
+>>    No changes to ocean panels from Paul's job.  
+
+Following `xpzab`, we configured `xqchb` similarly.
 
 
 ## xqchc
@@ -99,15 +101,24 @@ To do this (emission driven), we need to:
         - `UPO2A`: the converse of `UPA2O` above. Set this for a user specified TAG of 11.  
     (aside – when starting a coupled run the first day of atmosphere has no ocean flux, so it may be missing data for day 1 – this can screw up disgnostics – e.g., our monthly or annual mean might look crazy – but the model itself will zero it out and not actually apply MDI (What is this?:confused:) as a flux).  
 
+This one worked, meaning that our model has the capability to couple the land carbon cycle and the ocean carbon cycle!:satisfied:
+
 ## xqchf
 
+The next step would be, to test if the model is working with an emission ancillary file.  
 Basically copy of `xqche`, some differences are:  
 
 1. We used an ancillary file of CO<sub>2</sub> emissions from 1750 to 2100 rather than input a constant conc value.  
 
-2. As ancil data start from 1750, we changed the model basis time from 1650 to 1750 and running length to be 350 model years.
+2. As ancil data start from 1750, we changed the model basis time from 1650 to 1750 and running length to be 350 model years. And, this worked!:smile:
    > 
    > Emissions file produced by Alex, data from Chris.  
-  
-## xqcht
+
+And, this worked, too!
+
+## xqcht  
+
+Now is the time to create our own ancillary file from a rather recent database (CMIP6). We encountered some problems when trying to create the ancillary file, including `Xconv` displaying difference between different hosts (eocene/bc4), python package `xarray` could not reliably process pp file (`cdo` and `xancil` could), incorrect `xancil` configuration to convert a netcdf file to a pp file (error code 678 complaining about wrong data format, i.e., periodic data):expressionless:...But finally the ancil worked!:thumbsup:  
+
+We have nearly everything needed for the CMIP7 experiments, and could perform control runs as long as historical emissions data of CO<sub>2</sub> and GHGs become available.
 
