@@ -18,7 +18,7 @@ Where scripts are stored.
 
 - IT_info
 
-Might be a bit unrelated, for diagonising IT information.
+Might be a bit unrelated, for diagnosing IT information.
 
 For details, please contact  
 <ys.li@bristol.ac.uk>
