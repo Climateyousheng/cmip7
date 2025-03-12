@@ -70,20 +70,24 @@ To do this (emission driven), we need to:
 1. Have tracers on – this is already done above, but from here it is needed.
 2. Select CO<sub>2</sub> `from interactive carbon cycle` and set a constant value to initialise (unless we want to run from an existing dump). Use same as would be prescribed: 4.25418e-04. For spin-up we don't want emisssions, so select that as `not-used`.
 3. To make sure the right prognostics are initialised, we need the following in the `RECONA`/`RECONO` files:  
-   - `RECONA`  
+   - `RECONA`   
 
-    `### Tracer fields ###`  
-    `&ITEMS ITEM=61, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=1.0000e-06 &END`  
-    `### Co2 Field for interactive carbon cycle ###`  
-    `&ITEMS ITEM=250, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=0.0e-00 &END`  
-    `&ITEMS ITEM=251, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=0.0e-00 &END`  
-    `&ITEMS ITEM=252, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=4.25418e-04 &END`  
+    ```
+    ### Tracer fields ###
+    &ITEMS ITEM=61, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=1.0000e-06 &END
+    ### Co2 Field for interactive carbon cycle ###
+    &ITEMS ITEM=250, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=0.0e-00 &END
+    &ITEMS ITEM=251, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=0.0e-00 &END
+    &ITEMS ITEM=252, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=4.25418e-04 &END
+    ```
     
     > The tracer is required or else the tracer code doesnot run. We don't actually use it. For the CO<sub>2</sub> fields, 250 is the ocean flux – initialise this to zero or else there is no data on the first day. After day 1 it gets passed in from the ocean. 251 is the emissions  – again set to zero unless we want to run with a specified emission or read in from file. 252 is the CO<sub>2</sub> conc itself in MMR. This line should already be there, and set to the value we chose in the umui.
     >
    - `RECONO`  
 
-    `&ITEMS ITEM=200, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=280.0e-00 &END`  
+    ```
+    &ITEMS ITEM=200, DOMAIN=1, SOURCE=6, USER_PROG_RCONST=280.0e-00 &END
+    ```
 
     > This sets the atmos CO<sub>2</sub> – again will get passed by the model once it is running, but good to set here for a sensible start value.  
     > 
