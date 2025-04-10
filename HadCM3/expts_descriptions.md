@@ -107,6 +107,10 @@ To do this (emission driven), we need to:
 
 This one worked, meaning that our model has the capability to couple the land carbon cycle and the ocean carbon cycle!:satisfied:
 
+> [!NOTE]
+> after processing umui jobs in umui, the only changes we made is to modify the recon files, i.e., `RECONA` and `RECONO` under `umui_jobs/xqche`. A script might help, just type `recon_add_emis_tracers.sh RECONA RECONO` under `~/umui_jobs/xqche/` (replace with your expt). Unfortunatelly, a bug exist, we still need to manually delete a backslash for a specified line.
+
+
 ## xqchf
 
 The next step would be, to test if the model is working with an emission ancillary file.  
@@ -125,4 +129,12 @@ And, this worked, too!
 Now is the time to create our own ancillary file from a rather recent database (CMIP6). We encountered some problems when trying to create the ancillary file, including `Xconv` displaying difference between different hosts (eocene/bc4), python package `xarray` could not reliably process pp file (`cdo` and `xancil` could), incorrect `xancil` configuration to convert a netcdf file to a pp file (error code 678 complaining about wrong data format, i.e., periodic data):expressionless:...But finally the ancil worked!:thumbsup:  
 
 We have nearly everything needed for the CMIP7 experiments, and could perform control runs as long as historical emissions data of CO<sub>2</sub> and GHGs become available.
+
+## xqchh
+
+As mentioned in [CMIP7_model](https://github.com/Climateyousheng/UM_Bristol/blob/main/CMIP7_model.md), the bug in TRIFFID when absorbing CO<sub>2</sub> is fixed, thus it's a good idea to run them again to compare against old runs. `xqchh` is fixed run based on `xqchf`, thus SRES_A2 scenario.
+
+## xqchi
+
+Similarly, `xqchi` is updated from `xqcht`, using CMIP6 scenario.
 
