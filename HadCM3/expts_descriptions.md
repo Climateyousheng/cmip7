@@ -1,14 +1,29 @@
-# Expts descriptions and detailed configurations.
+Expts descriptions and detailed configurations.
+
+## Contents
+
+- [Contents](#contents)
+- [Testing availability of HadCM3 using old data](#testing-availability-of-hadcm3-using-old-data)
+- [xqcha — test run](#xqcha--test-run)
+- [xqchb — control run](#xqchb--control-run)
+- [xqchc — GHGs conc](#xqchc--ghgs-conc)
+- [xqchd — GHGs + CO2 conc](#xqchd--ghgs--co2-conc)
+- [xqche — emissions test](#xqche--emissions-test)
+- [xqchf — SRES A2 emissions](#xqchf--sres-a2-emissions)
+- [xqcht — CMIP6 emissions](#xqcht--cmip6-emissions)
+- [xqchh — SRES A2 emissions (fixed)](#xqchh--sres-a2-emissions-fixed)
+- [xqchi — CMIP6 emissions (fixed)](#xqchi--cmip6-emissions-fixed)
+
 
 ## Testing availability of HadCM3 using old data
 
 A set of experiments were carried out following the configurations of Chris' `xpza`.  
 
-## xqcha
+## xqcha — test run
 
 This is a straight copy from `xpuoo` (for testing purposes).  
 
-## xqchb
+## xqchb — control run
 
 Copied from `xpzab`, control run of `xpza`.  The GHGs in `xqchb` are not updated from [SRES data](https://www.ipcc.ch/site/assets/uploads/2018/03/sres-en.pdf) (Special Report on Emissions Scenarios, very likely).
 > `xpzab`: Spin-up ii. Dynamic TRIFFID. 200 years to finish spin-up. After this check veg frac, carbon stores and ocean fluxes are in steady state. Copy from `xpzaa`, but turn to dyn triffid (10-day period), and edit a few diags. TRIFFID profile set to 480 timesteps. **Plan to leave this going as a control run, and start point for subsequent runs.**
@@ -48,15 +63,15 @@ Copied from `xpzab`, control run of `xpza`.  The GHGs in `xqchb` are not updated
 Following `xpzab`, we configured `xqchb` similarly.
 
 
-## xqchc
+## xqchc — GHGs conc
 
 Copy from `xqchb`, we changed the GHGs conc here from the latest CMIP6 dataset ([input4MIPs](https://docs.google.com/document/d/1pU9IiJvPJwRvIgVaSDdJ4O0Jeorv_2ekEtted34K9cA/edit?tab=t.0#heading=h.kbcgohrf04fo)), for methane, nitrous oxide, CHC12-eq and HFC134A-eq for 7 periods from 1850–2014.
 
-## xqchd
+## xqchd — GHGs + CO<sub>2</sub> conc
 
 Copy from `xqchb`, we changed both the GHGs conc here as well as the CO<sub>2</sub> conc, similarly to xqchc.
 
-## xqche
+## xqche — emissions test
 
 Copy from `xqchb`, here we do not consider the conc of GHGs other than CO<sub>2</sub>, so put them at default values.  
 For CO<sub>2</sub> emit, two things need to be done:
@@ -111,7 +126,7 @@ This one worked, meaning that our model has the capability to couple the land ca
 > after processing umui jobs in umui, the only changes we made is to modify the recon files, i.e., `RECONA` and `RECONO` under `umui_jobs/xqche`. A script might help, just type `recon_add_emis_tracers.sh RECONA RECONO` under `~/umui_jobs/xqche/` (replace with your expt). Unfortunatelly, a bug exist, we still need to manually delete a backslash for a specified line.
 
 
-## xqchf
+## xqchf — SRES A2 emissions
 
 The next step would be, to test if the model is working with an emission ancillary file.  
 Basically copy of `xqche`, some differences are:  
@@ -124,17 +139,17 @@ Basically copy of `xqche`, some differences are:
 
 And, this worked, too!
 
-## xqcht  
+## xqcht — CMIP6 emissions
 
 Now is the time to create our own ancillary file from a rather recent database (CMIP6). We encountered some problems when trying to create the ancillary file, including `Xconv` displaying difference between different hosts (eocene/bc4), python package `xarray` could not reliably process pp file (`cdo` and `xancil` could), incorrect `xancil` configuration to convert a netcdf file to a pp file (error code 678 complaining about wrong data format, i.e., periodic data):expressionless:...But finally the ancil worked!:thumbsup:  
 
 We have nearly everything needed for the CMIP7 experiments, and could perform control runs as long as historical emissions data of CO<sub>2</sub> and GHGs become available.
 
-## xqchh
+## xqchh — SRES A2 emissions (fixed)
 
 As mentioned in [CMIP7_model](https://github.com/Climateyousheng/UM_Bristol/blob/main/CMIP7_model.md), the bug in TRIFFID when absorbing CO<sub>2</sub> is fixed, thus it's a good idea to run them again to compare against old runs. `xqchh` is fixed run based on `xqchf`, thus SRES_A2 scenario.
 
-## xqchi
+## xqchi — CMIP6 emissions (fixed)
 
 Similarly, `xqchi` is updated from `xqcht`, using CMIP6 scenario.
 
