@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../hadcm3b-ensemble-generator"
+		},
+		{
+			"path": "../../../scripts/scripts_thesis"
+		},
+		{
+			"path": "../../bridge_um"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
